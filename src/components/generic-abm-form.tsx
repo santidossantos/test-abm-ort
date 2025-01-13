@@ -54,6 +54,7 @@ export default function GenericABMForm() {
       <ul>
         {dataList.map((item) => (
           <li key={item.id}>
+            {/* Esto esta generico, podrian ponerse la keys de los objetos */}
             {Object.values(item).join(" - ")}
             <button onClick={() => handleEdit(item)} style={{ marginLeft: "10px" }}>
               Edit
