@@ -42,7 +42,10 @@ export default function GenericABMForm() {
     <div>
       <h2>{`Manage ${selectedEntity}`}</h2>
       <label>Select Entity: </label>
-      <select value={selectedEntity} onChange={(e) => setSelectedEntity(e.target.value as ABMEntity)}>
+      <select
+        value={selectedEntity}
+        onChange={(e) => setSelectedEntity(e.target.value as ABMEntity)}
+      >
         {Object.keys(entitiesConfigs).map((entity) => (
           <option key={entity} value={entity}>
             {entity.charAt(0).toUpperCase() + entity.slice(1)}
@@ -76,7 +79,7 @@ export default function GenericABMForm() {
         />
       )}
       <button onClick={handleSubmit}>Submit</button>
-      <button onClick={handleDelete} style={{ margin: "10px", backgroundColor: "red", color: "white" }}>
+      <button onClick={handleDelete} style={{ margin: "10px", backgroundColor: "red" }}>
         Delete
       </button>
     </div>

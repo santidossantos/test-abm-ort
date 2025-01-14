@@ -1,5 +1,5 @@
-import { ABMConfig } from "../types/abm-config";
-import { VerticalLayout } from "@jsonforms/core";
+import { ABMConfig } from "../types/abm-config"
+import { VerticalLayout } from "@jsonforms/core"
 
 // Example configuration for ABMs
 export const teacherConfig: ABMConfig = {
@@ -11,8 +11,10 @@ export const teacherConfig: ABMConfig = {
       name: { type: "string", minLength: 3 },
       subject: { type: "string" },
       yearsOfExperience: { type: "integer", minimum: 0 },
+      department: { type: "string", enum: ["Science", "Mathematics", "Arts"] },
+      hireDate: { type: "string", format: "date" },
     },
-    required: ["name", "subject"],
+    required: ["name", "subject", "department", "hireDate"],
   },
   uiSchema: {
     type: "VerticalLayout",
@@ -20,6 +22,8 @@ export const teacherConfig: ABMConfig = {
       { type: "Control", scope: "#/properties/name" },
       { type: "Control", scope: "#/properties/subject" },
       { type: "Control", scope: "#/properties/yearsOfExperience" },
+      { type: "Control", scope: "#/properties/department" },
+      { type: "Control", scope: "#/properties/hireDate" },
     ],
   } as unknown as VerticalLayout,
   initialData: {
@@ -27,4 +31,4 @@ export const teacherConfig: ABMConfig = {
     subject: "Math",
     yearsOfExperience: 5,
   },
-};
+}
